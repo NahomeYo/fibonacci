@@ -1,20 +1,24 @@
----
-title: "Fibonacci HTML Encoding"
-output: github_document
----
+# Fibonacci
 
-# HTML Encoding Map
+## Complexity
 
-The Fibonacci page is encoded as one algorithm card with these ordered sections:
+- Best: O(n)
+- Worst: O(n)
+- Avg: O(n)
+- Space: O(n)
 
-1. `\<title>` and the visible card heading label the page as "Fibonacci".
-2. The top bar holds navigation links and the complexity summary.
-3. `Problem Description` explains the bottom-up dynamic-programming approach for computing the `n`th Fibonacci number.
-4. `Code` is loaded into the shared `codeBox` element from `main.js`.
-5. `Algorithm Steps` is a normalized unordered list with paragraph-wrapped list items.
-6. `Explanation` contrasts the iterative dynamic-programming approach with naive recursive recomputation and states the `O(n)` time and `O(n)` space costs.
-7. `Example/Demo` is the output `exampleBox` block.
+## Problem Description
 
-# Structural Notes
+This implementation computes the `n`th Fibonacci number with dynamic programming. The Fibonacci sequence starts with 0 and 1, and each later value is the sum of the two previous values. Instead of recomputing the same smaller values many times, the algorithm stores them in a table and builds the answer from the bottom up.
 
-The page keeps the standard algorithm viewer attributes on the `body` element. The prose is aligned to the current JavaScript implementation, which stores Fibonacci values in an array and returns the final table entry.
+## Algorithm Steps
+
+1. Create an array to store the Fibonacci values for smaller indices.
+2. Set the base cases `F[0] = 0` and `F[1] = 1`.
+3. Loop from index 2 up to `n`.
+4. At each index, compute `F[i] = F[i - 1] + F[i - 2]`.
+5. Return `F[n]` after the table is complete.
+
+## Explanation
+
+A naive recursive Fibonacci solution repeats the same subproblems many times and therefore has exponential runtime. This bottom-up dynamic programming version avoids that repetition by storing each Fibonacci value exactly once. The loop performs one constant-time update for each index from 2 through `n`, so the runtime is `O(n)`. The table stores all values from 0 through `n`, giving the implementation `O(n)` space usage.
