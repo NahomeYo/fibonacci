@@ -68,4 +68,6 @@ A naive recursive Fibonacci solution looks simple, but it performs a large amoun
 
 After the base cases `F[0] = 0` and `F[1] = 1` are set, every later value is built with the recurrence `F[i] = F[i - 1] + F[i - 2]`. Since the two needed previous values have already been computed and saved, each new step takes constant time. The algorithm therefore moves through the table in a clean, predictable way without any repeated subproblem work.
 
+In the JavaScript implementation, the table is just a normal array, and the Fibonacci values are stored by index with assignments like `values[i] = values[i - 1] + values[i - 2]`. That makes the code very direct, because the array itself acts as the dynamic programming table without needing any extra helper functions.
+
 The loop performs one constant-time update for each index from 2 through `n`, so the runtime is `O(n)`. Because the implementation stores all Fibonacci values from 0 through `n`, the space usage is also `O(n)`.
